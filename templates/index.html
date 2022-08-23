@@ -16,15 +16,14 @@
 <body>
     <div class="container">
         <div class="row mt-4 my-2">
-            <h1 class="h4">List</h1>
+            <h1 class="h4">File List</h1>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a href="/add" class="btn btn-primary">追加</a>
+                <a href="/add" class="btn btn-primary">写真を追加</a>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Name</th>
                             <th>File</th>
                             <th></th>
@@ -33,9 +32,8 @@
                     <tbody>
                         {% for file in files %}
                         <tr>
-                            <td>{{ file.id }}</td>
                             <td>{{ file.name }}</td>
-                            <td><img src="{{ file.file_path }}" alt=""></td>
+                            <td><img src="{{ file.file_path }}" alt="" width="100px" height="100px"></td>
                             <td><a class="btn btn-danger" href="/delete/{{ file.id }}">削除</a></td>
                         </tr>
                         {% endfor %}
