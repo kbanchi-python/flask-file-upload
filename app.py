@@ -33,7 +33,7 @@ def addFamilyGet():
 @app.route("/add", methods=["POST"])
 def addFamilyPost():
     name = request.form["name"]
-    file = request.files["file"]
+    # file = request.files["file"]
     camera = request.files["camera"]
     # file_name = str(file.filename)
     # file_path = UPLOAD_FOLDER + "/" + file_name
