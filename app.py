@@ -21,8 +21,12 @@ UPLOAD_FOLDER = "static/images"
 
 @app.route("/")
 def index():
-    files = File.select()
-    return render_template("index.html", files=files)
+    search_text = request.args.get("search_text", "")
+    if not search_text:
+        files = File.select()
+    else:
+        files = File.select().where(File.name.contains(search_text))
+    return render_template("index.html", files=files, search_text=search_text)
 
 
 @app.route("/add", methods=["GET"])
@@ -63,5 +67,5 @@ def get_random_string():
 
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 5000))
+    port = int(os.getenv("PORT", 5001))
     app.run(host="0.0.0.0", port=port)
