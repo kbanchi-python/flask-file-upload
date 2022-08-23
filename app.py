@@ -34,9 +34,13 @@ def addFamilyGet():
 def addFamilyPost():
     name = request.form["name"]
     file = request.files["file"]
-    file_name = str(file.filename)
+    camera = request.files["camera"]
+    # file_name = str(file.filename)
+    # file_path = UPLOAD_FOLDER + "/" + file_name
+    # file.save(os.path.join(UPLOAD_FOLDER, file_name))
+    file_name = str(camera.filename)
     file_path = UPLOAD_FOLDER + "/" + file_name
-    file.save(os.path.join(UPLOAD_FOLDER, file_name))
+    camera.save(os.path.join(UPLOAD_FOLDER, file_name))
     File.create(name=name, file_path=file_path)
     return redirect("/")
 
