@@ -14,7 +14,7 @@ from config import File
 
 app = Flask(__name__)
 
-app.config["MAX_CONTENT_LENGTH"] = 1 * 1024 * 1024
+app.config["MAX_CONTENT_LENGTH"] = 1 * 1024 * 1024 * 1024
 
 UPLOAD_FOLDER = "static/images"
 
